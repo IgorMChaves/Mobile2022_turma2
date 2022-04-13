@@ -1,4 +1,4 @@
-
+  
 import React from "react";
 import {
   View,
@@ -7,17 +7,17 @@ import {
   KeyboardAvoidingView,
   ImageBackground,
 } from "react-native";
-import { MaterialIcons, Entypo } from "@expo/vector-icons";
+import { MaterialIcons, Entypo, Ionicons } from "@expo/vector-icons";
 import Button from "../../components/button";
 import styles from "./styles";
 import { LoginTypes } from "../../types/Screen.types";
 
-export default function Login({ navigation }: LoginTypes) {
+export default function Cadastrar({ navigation }: LoginTypes) {
   async function handleSignIn() {
-    console.log("Login");
+    console.log("Cadastrar");
   }
-  function handleCadastrar() {
-    navigation.navigate("Cadastrar");
+  function handleLogin() {
+    navigation.navigate("Login");
   }
 
   return (
@@ -27,7 +27,11 @@ export default function Login({ navigation }: LoginTypes) {
         style={styles.container}
       >
         <KeyboardAvoidingView>
-          <Text style={styles.title}>Login</Text>
+          <Text style={styles.title}>Cadastre-se</Text>
+          <View style={styles.formRow}>
+            <Ionicons name="person" style={styles.icon} />
+            <TextInput style={styles.input} placeholder="Nome" />
+          </View>
           <View style={styles.formRow}>
             <MaterialIcons name="email" style={styles.icon} />
             <TextInput
@@ -46,8 +50,8 @@ export default function Login({ navigation }: LoginTypes) {
               autoCapitalize="none"
             />
           </View>
-          <Button title="Login" type="green" onPress={handleSignIn} />
-          <Button title="Cadastre-se" type="purple" onPress={handleCadastrar} />
+          <Button title="Salvar" type="purple" onPress={handleSignIn} />
+          <Button title="Voltar" type="green" onPress={handleLogin} />
         </KeyboardAvoidingView>
       </ImageBackground>
     </View>
